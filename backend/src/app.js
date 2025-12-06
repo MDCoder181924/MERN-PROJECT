@@ -1,7 +1,8 @@
 // create sever
 const express = require('express'); 
 const cookieParser = require('cookie-parser');
-const authRoteus = require('./routes/auth.routes');
+const authRoutes = require('./routes/auth.routes');
+const foodRoutes = require('./routes/food.router');
 
 const app = express();
 app.use(cookieParser());
@@ -11,6 +12,8 @@ app.get('/', (req , res)=>{
     res.send("Hello World");
 })
 
-app.use('/api/auth', authRoteus);
+app.use('/api/auth', authRoutes);
+app.use('/api/food', foodRoutes);
+
 
 module.exports = app;
